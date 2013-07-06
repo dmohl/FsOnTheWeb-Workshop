@@ -1,0 +1,23 @@
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>ex1.1 - Guitar Model</Title> 
+            <Shortcut>ex1.1</Shortcut> 
+            <Description>F# Guitar Model</Description> 
+            <Author>Daniel Mohl</Author> 
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType> 
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Code Language="fsharp">
+                <![CDATA[namespace FsWeb.Models
+open System.ComponentModel.DataAnnotations
+
+type Guitar() =
+    member val Id = 0 with get, set
+    [<Required>] member val Name = "" with get, set]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

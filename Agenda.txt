@@ -1,0 +1,29 @@
+High Level:
+
+- Start with C# MVC, move to F#, to more functional approach, to WebSharper
+
+- Cover Azure and/or AppHarbor (if we have time).
+
+- MonoDevelop, Xamarin Studio, Web Express Version (I'll take these examples)
+
+- MVC C# to F# to more Functional, FunScript, and verify/test all samples in VS and MonoDevelop.
+
+- Web API, Frank, and WebSharper and verify/test all samples with Xamarin Studio
+
+
+Agenda:
+
+- Getting setup and Build your first MVC app (30 min) 
+    - Short description of what F# is, platforms its on, F# Software Foundation, why it's great for web dev, etc. 
+    - Start with C# app
+    - Move to F# app
+    - Move to more functional approach? -> We might not have time for this here. Should this be part of the Functional nature of the Web?
+    - Show in VS, Xamarin Studio, and MonoDevelop
+- Exercises (35 min) 
+- Functional nature of the Web? (15 min)? 
+- 15 min break
+- Web Sharper and FunScript (20 min) 
+- Exercises (30 min)
+- Build a Web API service and reviewing Frank (20 min)
+- Exercises (30 min)
+

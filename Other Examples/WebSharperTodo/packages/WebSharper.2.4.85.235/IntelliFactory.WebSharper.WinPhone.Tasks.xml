@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IntelliFactory.WebSharper.WinPhone.Tasks</name>
+    </assembly>
+    <members>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Tasks.PackageForWinPhone">
+            <summary>
+            An MSBuild task for packaging a folder into a binary file
+            that Windows Phone application can later read.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Tasks.PackageForWinPhone.Execute">
+            <summary>
+            Runs the task.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Tasks.PackageForWinPhone.SourceDirectory">
+            <summary>
+            The path of the input directory.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Tasks.PackageForWinPhone.PackageFile">
+            <summary>
+            The path of the output (package) file.
+            </summary>
+        </member>
+    </members>
+</doc>

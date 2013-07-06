@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Guitars</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <div data-role="page" data-theme="a" id="guitarsPage">
+        <header data-role="header">
+            <h1>Guitars</h1>
+        </header>
+        <div data-role="content">
+            <form method="post">
+                <label for="name">Name</label> <input type="text" name="name" id="name" />
+                <button type="submit" data-role="button">Create</button>
+            </form>
+            <ul id="guitars" data-role="listview" data-filter="true" data-inset="true"></ul>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.1.min.js"></script>
+    <script src="~/Scripts/script.js"></script>
+</body>
+</html>  

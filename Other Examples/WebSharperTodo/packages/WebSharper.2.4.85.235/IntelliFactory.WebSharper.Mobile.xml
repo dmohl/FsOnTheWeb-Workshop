@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>IntelliFactory.WebSharper.Mobile</name></assembly>
+<members>
+<member name="M:IntelliFactory.WebSharper.Mobile.ICamera.TakePicture">
+<summary>
+ Takes a picture with the specified dimensions.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Mobile.ICamera">
+<summary>
+ An interface for the phone camera.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Mobile.Jpeg">
+<summary>
+ Represents JPEG image data encoded as a string, each character
+ representing a single unsigned byte of the dat.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Mobile.IGeolocator.GetLocation">
+<summary>
+ Returns the current location of the device.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Mobile.IGeolocator">
+<summary>
+ An interface for determining geographical location.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Mobile.IAccelerometer.IsMeasuringAcceleration(System.Boolean)">
+<summary>
+ Gets or sets the state of acceleration subscription.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Mobile.IAccelerometer.IsMeasuringAcceleration">
+<summary>
+ Gets or sets the state of acceleration subscription.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Mobile.IAccelerometer.AccelerationChange">
+<summary>
+ Allows subscribing to acceleration updates.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Mobile.IAccelerometer">
+<summary>
+ An interface for subscribing to acceleration updates.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Mobile.ILog.Trace(IntelliFactory.WebSharper.Mobile.Priority,System.String,System.String)">
+<summary>
+ Traces a message with a given priority and category.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Mobile.ILog">
+<summary>
+ Represents a trace facility.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.Mobile.Priority">
+<summary>
+ Represents log message priority.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.Mobile.Acceleration">
+<summary>
+ Represents phone acceleration data in SI units (m/s^2).
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.Mobile.Location">
+<summary>
+ Represents a geographic location.
+</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,31 @@
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>ex1.2 - F# MVC Controller</Title> 
+            <Shortcut>ex1.2</Shortcut> 
+            <Description>F# MVC Controller</Description> 
+            <Author>Daniel Mohl</Author> 
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType> 
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Code Language="fsharp">
+                <![CDATA[namespace FsWeb.Controllers
+
+open System.Web.Mvc
+open FsWeb.Models
+
+[<HandleError>]
+type GuitarsController() =
+    inherit Controller()
+    member this.Index () =
+        // The sequence is hardcoded for example purposes only.
+        // It will be switched out in a future example.
+        seq { yield Guitar(Name = "Gibson Les Paul")
+              yield Guitar(Name = "Martin D-28") }
+        |> this.View ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>IntelliFactory.WebSharper.Install</name></assembly>
+<members>
+<member name="T:IntelliFactory.WebSharper.Install.Common.FSharpInfo.FSharpVersion.FSharpBelow30">
+<summary>
+ Any F# below F# 3.0.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Install.Common.FSharpInfo.FSharpVersion.FSharp30">
+<summary>
+ F# 3.0 with type providers, FSharp.Core Version 4.3.0.0
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Install.Common.FSharpInfo.FSharpVersion">
+<summary>
+ Represents the installed F# version.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Install.Common.FSharpInfo.CurrentFSharpVersion">
+<summary>
+ The F# version installed on the current machine.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Install.Common.FSharpInfo">
+<summary>
+ Provides utilities to determine the current F# installation.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.Install.Common.VisualStudio.TemplateKind">
+<summary>
+ Represents the kind of Visual Studio templates.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Install.Common.VisualStudio.Version.VS11">
+<summary>
+ Visual Studio 2011
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Install.Common.VisualStudio.Version.VS10">
+<summary>
+ Visual Studio 2010
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Install.Common.VisualStudio.Version.VS9">
+<summary>
+ Visual Studio 2008
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Install.Common.VisualStudio.Version.Code">
+<summary>
+ The text form of the version, for example, &quot;11.0&quot;.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Install.Common.VisualStudio.Version">
+<summary>
+ Represents Visual Studio verisons.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Install.Common.VisualStudio.TemplateLocation(IntelliFactory.WebSharper.Install.Common.VisualStudio.Version,IntelliFactory.WebSharper.Install.Common.VisualStudio.TemplateKind)">
+<summary>
+ Searches the registry to determine where the template folder is located.
+ Returns None if the given Visual Studio version is not installed on the
+ current machine.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Install.Common.VisualStudio">
+<summary>
+ Queries the registry about the Visual Studio installation.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Install.Main">
+<summary>
+ Defines the application logic executed upon (un) installation.
+</summary>
+</member>
+</members>
+</doc>

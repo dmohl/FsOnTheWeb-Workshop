@@ -1,0 +1,61 @@
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>fsex3 - F# Guitars Create View</Title> 
+            <Shortcut>fsex3</Shortcut> 
+            <Description>F# Guitars Create View</Description> 
+            <Author>Daniel Mohl</Author> 
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType> 
+            </SnippetTypes>
+            <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>			
+        </Header>
+       
+		<Snippet>
+		    <Declarations>
+				<Literal Editable="true">   
+					 <ID>dollar</ID>            
+					 <ToolTip>replace the dollar sign character</ToolTip>            
+					 <Default>$</Default>         
+				</Literal>
+			</Declarations>
+            <Code Language="html">
+                <![CDATA[@model FsWeb.Models.Guitar
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create a guitar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+  </head>
+  <body>
+    <div data-role="page" data-theme="a" id="guitarsCreatePage">
+      <div data-role="header">
+      <h1>Guitars</h1>
+    </div>
+    <div data-role="content">
+    @using (Html.BeginForm("Create", "Guitars", FormMethod.Post))
+    {
+      <div data-role="fieldcontain">
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+        <div>
+          @Html.ValidationMessageFor(m => m.Name)
+        </div>
+      </div>
+      <div>
+        <button type="submit" data-role="button">Create</button>
+      </div>
+    }
+    </div>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+</body>
+</html>]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
+
+

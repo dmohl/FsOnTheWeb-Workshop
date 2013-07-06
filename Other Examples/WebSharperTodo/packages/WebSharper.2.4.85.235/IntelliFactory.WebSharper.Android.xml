@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>IntelliFactory.WebSharper.Android</name></assembly>
+<members>
+<member name="P:IntelliFactory.WebSharper.Android.Context.IsMeasuringAcceleration(System.Boolean)">
+<summary>
+ Gets or sets the state of acceleration subscription.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Context.IsMeasuringAcceleration">
+<summary>
+ Gets or sets the state of acceleration subscription.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Context.Geolocator">
+<summary>
+ The geolocator service, if available.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Context.AccelerationChange">
+<summary>
+ Allows subscribing to acceleration updates.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Context.Trace(IntelliFactory.WebSharper.Mobile.Priority,System.String,System.String)">
+<summary>
+ Traces a message to the system log.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Context.TakePicture">
+<summary>
+ Uses the device camera, if available.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Context.Get">
+<summary>
+ Attempts to get the Android Context object.
+ Returns None in non-Android environments.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Android.Context">
+<summary>
+ Represents an Android context: API available for applications running
+ on Android-powered devices.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Bluetooth.Context.IsEnabled">
+<summary>
+ Tests if Bluetooth is enabled on the current Android device.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Bluetooth.Context.IsDiscovering">
+<summary>
+ Tests if the Bluetooth device discovery process is active.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Bluetooth.Context.IsDiscoverable">
+<summary>
+ Tests if the current Android device is currently
+ discoverable via Bluetooth.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Bluetooth.Context.Discovery">
+<summary>
+ Bluetooth device disovery event.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Context.StartDiscovery">
+<summary>
+ Starts the Bluetooth device discovery process.  This process
+ is asynchronous and usually involves an inquiry scan of about
+ 12 seconds, followed by a page scan of each found device to
+ retrieve its Bluetooth name.  You can subscribe to the
+ Discovery event to obtain the discovered devices.  Discovery
+ is expensive; it is recommended to CancelDiscovery as soon as
+ possible, especially before communicating to a device.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Context.Serve(System.String,System.String,Microsoft.FSharp.Core.FSharpFunc`2{IntelliFactory.WebSharper.Android.Bluetooth.Connection,Microsoft.FSharp.Control.FSharpAsync{Microsoft.FSharp.Core.Unit}})">
+<summary>
+ Starts a Bluetooth server with a given name and UUID.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Context.MakeDiscoverable(System.Int32)">
+<summary>
+ Makes the current Android device discoverable over Bluetooth
+ for a specified number of seconds.  May pop a dialog to the user
+ to request permissions to proceed.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Context.GetBondedDevices">
+<summary>
+ Gets all bonded (paired) Bluetooth devices.
+ Bonded devices are aware of each other&apos;s existence, have a shared link-key that can be used for authentication,
+ and are capable of establishing an encrypted connection with each other.
+ NOTE: bonded devices do are not necessarily connected, or even in range.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Context.Get">
+<summary>
+ Gets a Bluetooth context, if present on the current platform.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Context.Enable">
+<summary>
+ Enables Bluetooth.  May pop a dialog to the user to request
+ permissions to proceed.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Context.ConnectToDevice(IntelliFactory.WebSharper.Android.Bluetooth.Device,System.String)">
+<summary>
+ Connects to a given Bluetooth device asynchronously using a given UUID.
+ Connected devices can communicate over an RFCOMM channel.
+ If the two devices have not been previously paired, then the Android framework
+ will automatically show a pairing request notification or dialog to the user
+ during the connection procedure.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Context.CancelDiscovery">
+<summary>
+ Cancels Bluetooth device discovery.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Android.Bluetooth.Context">
+<summary>
+ Represents a Bluetooh context on the Android platform,
+ providing available Bluetooth operations.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Bluetooth.Connection.Socket">
+<summary>
+ The socket.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Bluetooth.Connection.Device">
+<summary>
+ The remote connected device.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Connection.Dispose">
+<summary>
+ Disposes both components (the device and the socket).
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Android.Bluetooth.Connection">
+<summary>
+ Represents a connection to a Bluetooth server.
+ Basically combines a device and a socket.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Socket.Write(System.String)">
+<summary>
+ Writes data to the socket.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Socket.Read">
+<summary>
+ Reads data from the socket. Returns `null` if no more data is to be read.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Socket.Dispose">
+<summary>
+ Closes the socket and frees resources.
+ Drops the reference to the proxied object on the Android side. Called in IDisposable.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Android.Bluetooth.Socket">
+<summary>
+ Represents a binary asynchronous Bluetooth socket.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Server.Dispose">
+<summary>
+ Stops the server and frees resources: drops the reference to the
+ proxied object on the Android side.  Called in IDisposable.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Android.Bluetooth.Server">
+<summary>
+ Represents a Bluetooth server.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Bluetooth.Device.Name">
+<summary>
+ The device name.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.Android.Bluetooth.Device.Address">
+<summary>
+ The device address.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Bluetooth.Device.Dispose">
+<summary>
+ Drops the reference to the proxied object on the Android side. Called in IDisposable.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Android.Bluetooth.Device">
+<summary>
+ Represents a (remote) bluetooth device.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Android.Bluetooth.Binary">
+<summary>
+ Represents binary data. The encoding uses one character per byte,
+ encoding binary data as unsigned bytes (char codes 0-255).
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Android.Bluetooth">
+<summary>
+ Provides an API for writing Bluetooth clients and servers.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Receiver.MakeAsync``1(Microsoft.FSharp.Core.FSharpFunc`2{System.Int32,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.FSharpFunc`2{System.Object,``0})">
+<summary>
+ Constructs a new Async&lt;&apos;T&gt; that waits for a message from the backend.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.Android.Receiver.GetEvent``1(System.String,Microsoft.FSharp.Core.FSharpFunc`2{System.Object,``0})">
+<summary>
+ Gets a named event triggered by the backend.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.Android.Receiver">
+<summary>
+ Provides a simple asynchronous message receiver facility to
+ communicate with the Android backend.
+</summary>
+</member>
+</members>
+</doc>

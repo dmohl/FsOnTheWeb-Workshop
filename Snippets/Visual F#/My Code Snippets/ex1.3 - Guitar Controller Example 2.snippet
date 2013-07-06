@@ -1,0 +1,37 @@
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>ex1.3 - Guitar Controller Example 2</Title> 
+            <Shortcut>ex1.3</Shortcut> 
+            <Description>F# Guitar Controller Example 2</Description> 
+            <Author>Daniel Mohl</Author> 
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType> 
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Code Language="fsharp">
+                <![CDATA[namespace FsWeb.Controllers
+
+open System
+open System.Web.Mvc
+open FsWeb.Models
+
+[<HandleError>]
+type GuitarsController() =    
+    inherit Controller()    
+
+    let guitars = match System.IO.File.Exists @"c:\temp\Guitars.txt" with
+                  | true -> 
+                      System.IO.File.ReadAllText(@"c:\temp\Guitars.txt").Split(',') 
+                      |> Array.map (fun x -> Guitar(Name = x))
+                  | _ -> [||]
+
+    member this.Index () = guitars |> this.View 
+
+    [<HttpGet>] 
+    member this.Create () = this.View()]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

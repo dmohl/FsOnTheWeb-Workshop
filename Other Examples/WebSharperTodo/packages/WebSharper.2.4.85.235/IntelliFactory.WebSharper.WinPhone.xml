@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>IntelliFactory.WebSharper.WinPhone</name></assembly>
+<members>
+<member name="P:IntelliFactory.WebSharper.WinPhone.Context.IsMeasuringAcceleration(System.Boolean)">
+<summary>
+ Gets or sets the state of acceleration subscription.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.WinPhone.Context.IsMeasuringAcceleration">
+<summary>
+ Gets or sets the state of acceleration subscription.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.WinPhone.Context.AccelerationChange">
+<summary>
+ Allows subscribing to acceleration updates.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.WinPhone.Context.Trace(IntelliFactory.WebSharper.Mobile.Priority,System.String,System.String)">
+<summary>
+ Traces a message to the system log.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.WinPhone.Context.TakePicture">
+<summary>
+ Uses the device camera, if available.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.WinPhone.Context.GetGeolocator">
+<summary>
+ Retrieves the geolocator service, if available.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.WinPhone.Context.Get">
+<summary>
+ Attempts to get the Context object.
+ Returns None in non-Windows-Phone environments.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.WinPhone.Context">
+<summary>
+ Represents a Windows Phone context: API available for applications running
+ on Windows Phone devices.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.WinPhone.Receiver.MakeAsync``1(Microsoft.FSharp.Core.FSharpFunc`2{System.Int32,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.FSharpFunc`2{System.Object,``0})">
+<summary>
+ Constructs a new Async&lt;&apos;T&gt; that waits for a message from the backend.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.WinPhone.Receiver.GetEvent``1(System.String,Microsoft.FSharp.Core.FSharpFunc`2{System.String,``0})">
+<summary>
+ Gets a named event triggered by the backend.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.WinPhone.Receiver">
+<summary>
+ Provides a simple asynchronous message receiver facility to
+ communicate with the Windows Phone backend.
+</summary>
+</member>
+</members>
+</doc>

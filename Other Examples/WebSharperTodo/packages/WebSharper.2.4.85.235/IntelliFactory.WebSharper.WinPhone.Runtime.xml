@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IntelliFactory.WebSharper.WinPhone.Runtime</name>
+    </assembly>
+    <members>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.DefaultFileSystem">
+            <summary>
+            Exposes the standard filesytem as IFileSystem.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem">
+            <summary>
+            Abstracts over a file system, such as the default file system or isolated storage.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem.CreateDirectory(System.String)">
+            <summary>
+            Creates a directory.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem.DeleteDirectory(System.String)">
+            <summary>
+            Deletes a directory recursively.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem.DeleteFile(System.String)">
+            <summary>
+            Deletes a file.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem.DirectoryExists(System.String)">
+            <summary>
+            Tests if a directory exists.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem.GetDirectories(System.String)">
+            <summary>
+            Retrieves subdirectories of a directory given by path.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem.GetFiles(System.String)">
+            <summary>
+            Retrieves all files in a given directory.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem.ReadAllBytes(System.String)">
+            <summary>
+            Reads the contents of a file into a byte array.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem.WriteAllBytes(System.String,System.Byte[])">
+            <summary>
+            Writes a byte array into a file.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.ExtendedAsciiEncoding">
+            <summary>
+            A simple 8-bit ExtendedAscii encoding. Every character corresponds to a byte.
+            Positive bytes are packed into character codes 0-127. Negative bytes are packed
+            into character codes 128-255 using two's complement.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage">
+            <summary>
+            Represents directory contents: files and folders realtive
+            to a common root.  Has a binary compressed representation.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.ToString">
+            <summary>
+            Formats the package to readable representation.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.Write(IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem,System.String)">
+            <summary>
+            Writes the package contents to an arbitrary filesystem.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.WriteBinary(System.IO.Stream)">
+            <summary>
+            Writes a compressed binary representation of the package.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.WriteBinaryFile(System.String)">
+            <summary>
+            Writes to a new or existing binary file.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.WriteDirectory(System.String)">
+            <summary>
+             Writes to a regular directory.
+             </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.WriteToIsolatedStorage(System.IO.IsolatedStorage.IsolatedStorageFile,System.String)">
+            <summary>
+            Writes to isolated storage.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.Read(IntelliFactory.WebSharper.WinPhone.Runtime.IFileSystem,System.String)">
+            <summary>
+            Reads the package contents from an arbitrary filesystem.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.ReadBinary(System.IO.Stream)">
+            <summary>
+            Reads a compressed binary representation of the package.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.ReadBinaryFile(System.String)">
+            <summary>
+            Reads an existing binary file.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.ReadDirectory(System.String)">
+            <summary>
+            Reads a regular directory.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.FilePackage.ReadFromIsolatedStorage(System.IO.IsolatedStorage.IsolatedStorageFile,System.String)">
+            <summary>
+            Reads from isolated storage.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.IsolatedStorageFileSystem">
+            <summary>
+            Implements a filesystem view of the isolated storage.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.IsolatedStorageFileSystem.#ctor(System.IO.IsolatedStorage.IsolatedStorageFile)">
+            <summary>
+            Constructs with a given IsolatedStorage root.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication">
+            <summary>
+            Runtime support class for WebSharper mobile apps.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.Initialize(System.Reflection.Assembly,Microsoft.Phone.Controls.WebBrowser)">
+            <summary>
+            Performs application initialization.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.OnUiThread(System.Action)">
+            <summary>
+            Runs the specified action on UI thread.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.InvokeScript(System.String,System.String)">
+            <summary>
+            Safe wrapper around browser.InvokeScript that does
+            not crash if the current function is not available.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.SendJson``1(``0)">
+            <summary>
+            Serializes a message to JSON and sends it to the client.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.Serialize``1(``0)">
+            <summary>
+            Serializes an object to JSON.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.Notify(System.String)">
+            <summary>
+            Handles window.external.notify messages.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.StartAccelerometer">
+            <summary>
+            Starts measuring acceleration.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.StopAccelerometer">
+            <summary>
+            Stops measuring acceleration, frees resources.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.HasGeolocator(System.Int32)">
+            <summary>
+            Tests if geolocation is supported.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.GetLocation(System.Int32)">
+            <summary>
+            Determines the current geographical location.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.Initialize(System.Reflection.Assembly)">
+            <summary>
+            Reads Mobile.pkg embedded resource and populates the isolated storage.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.Notification">
+            <summary>
+            Represents JSON messages sent from WebSharper via
+            window.external.notify.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.Notification.Category">
+            <summary>
+            The category of a trace message (only applies to trace messages).
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.Notification.MessageType">
+            <summary>
+            The message type corresponding to a method call.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.Notification.Priority">
+            <summary>
+            The message type corresponding to a method call.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.Notification.Text">
+            <summary>
+            The text of the message.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.Notification.UniqueId">
+            <summary>
+            Unique identifier.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.BooleanMessage">
+            <summary>
+            Represents simple yes/no JSON messages sent to WebSharper.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.BooleanMessage.Ok">
+            <summary>
+            The boolean status.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.BooleanMessage.UniqueId">
+            <summary>
+            The unique identifier.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.ErrorMessage">
+            <summary>
+            Represents JSON error messages sent back to WebSharper.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.ErrorMessage.UniqueId">
+            <summary>
+            Unique identifier.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.ErrorMessage.Error">
+            <summary>
+            Error message.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.AccelerationChangedMessage">
+            <summary>
+            Represents JSON messages sent back to the client
+            when an acceleration change is detected.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.AccelerationChangedMessage.X">
+            <summary>
+            The X coordinate.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.AccelerationChangedMessage.Y">
+            <summary>
+            The Y coordinate.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.AccelerationChangedMessage.Z">
+            <summary>
+            The Z coordinate.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.GeoLocationMessage">
+            <summary>
+            Represents JSON messages sent back to the client
+            responding with the current geographical location.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.GeoLocationMessage.UniqueId">
+            <summary>
+            Unique identifier.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.GeoLocationMessage.IsKnown">
+            <summary>
+            Indicates whether the location is known. Otherwise coordinates are 0.0.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.GeoLocationMessage.Latitude">
+            <summary>
+            Geographical latitude, or 0.0.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.GeoLocationMessage.Longitude">
+            <summary>
+            Geographical longitude, or 0.0.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.PhotoMessage">
+            <summary>
+            Represents JSON messages sent back to the client
+            upon taking a photo.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.PhotoMessage.UniqueId">
+            <summary>
+            Unique identifier.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.MobileApplication.PhotoMessage.Jpeg">
+            <summary>
+            Encoded JPEG data.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.Log">
+            <summary>
+            Provides facilities for exception and message tracing used by
+            WebSharper Windows Phone integration components.
+            Everything is logged to "error.log" file in isolated storage,
+            accessible with IsolatedStorageExplorerTool.  You can also subscribe
+            to trace events.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.Log.Trace(IntelliFactory.WebSharper.WinPhone.Runtime.Log.Priority,System.String,System.String,System.Object[])">
+            <summary>
+            The general tracing function.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.Log.Trace(IntelliFactory.WebSharper.WinPhone.Runtime.Log.Priority,System.String,System.Exception,System.String,System.Object[])">
+            <summary>
+            The most general tracing function including an exception.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.Log.TraceException(System.String,System.Exception)">
+            <summary>
+            Traces an exception with Priority.Error.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.Log.TraceInfo(System.String,System.String,System.Object[])">
+            <summary>
+            Traces a Priority.Info message.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.Log.TraceWarning(System.String,System.String,System.Object[])">
+            <summary>
+            Traces a Priority.Warning message.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.Log.TraceDebug(System.String,System.String,System.Object[])">
+            <summary>
+            Traces a Priority.Debug message in Debug mode, gets compiled out otherwise.
+            </summary>
+        </member>
+        <member name="E:IntelliFactory.WebSharper.WinPhone.Runtime.Log.MessageSent">
+            <summary>
+            Raised on every message that is being logged.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.Log.Priority">
+            <summary>
+            Represents message prioirty.
+            </summary>
+        </member>
+        <member name="F:IntelliFactory.WebSharper.WinPhone.Runtime.Log.Priority.Debug">
+            <summary>
+            Debug-level message, gets compiled out unless in Debug mode.
+            </summary>
+        </member>
+        <member name="F:IntelliFactory.WebSharper.WinPhone.Runtime.Log.Priority.Info">
+            <summary>
+            Info-level message, the default for tracing.
+            </summary>
+        </member>
+        <member name="F:IntelliFactory.WebSharper.WinPhone.Runtime.Log.Priority.Warn">
+            <summary>
+            A warning.
+            </summary>
+        </member>
+        <member name="F:IntelliFactory.WebSharper.WinPhone.Runtime.Log.Priority.Error">
+            <summary>
+            An error, typically an exception thrown.
+            </summary>
+        </member>
+        <member name="T:IntelliFactory.WebSharper.WinPhone.Runtime.Log.MessageSentEventArgs">
+            <summary>
+            Represents a message being logged.
+            </summary>
+        </member>
+        <member name="M:IntelliFactory.WebSharper.WinPhone.Runtime.Log.MessageSentEventArgs.ToString">
+            <summary>
+            Converts to a readable representation.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.Log.MessageSentEventArgs.Category">
+            <summary>
+            Describes the category, such as the originating class name.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.Log.MessageSentEventArgs.Exception">
+            <summary>
+            The raised exception, or null.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.Log.MessageSentEventArgs.Priority">
+            <summary>
+            The message priority.
+            </summary>
+        </member>
+        <member name="P:IntelliFactory.WebSharper.WinPhone.Runtime.Log.MessageSentEventArgs.Text">
+            <summary>
+            The message text, or null.
+            </summary>
+        </member>
+    </members>
+</doc>
