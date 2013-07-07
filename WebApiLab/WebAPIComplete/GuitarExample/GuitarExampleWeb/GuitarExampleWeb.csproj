@@ -131,15 +131,14 @@
     <Content Include="Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Content Include="packages.config" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GuitarExampleWebApp\GuitarExampleWebApp.fsproj">
-      <Project>{A126575F-C66E-42BF-A70F-655D4C3F0069}</Project>
+      <Project>{a126575f-c66e-42bf-a70f-655d4c3f0069}</Project>
       <Name>GuitarExampleWebApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

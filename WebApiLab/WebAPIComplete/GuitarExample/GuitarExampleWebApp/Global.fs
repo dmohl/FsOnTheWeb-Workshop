@@ -73,19 +73,22 @@ module Api =
         | MissingGuitar -> return request.CreateResponse(HttpStatusCode.BadRequest)
     }
 
-    let guitarsResource = route "guitars" (get getGuitars; post postGuitar)
+    let guitarsResource = route "guitars" (get getGuitars <|> post postGuitar)
 
-(**
- * Run the app in ASP.NET
- *)
-type Global() =
-    inherit System.Web.HttpApplication() 
 
-    member this.Start() =
-        let config = GlobalConfiguration.Configuration
+type WebApiConfig() =
+    static member Register(config: HttpConfiguration) =
         config
         |> HttpResource.register [ Api.guitarsResource ]
         |> ignore
 
         config.Formatters.JsonFormatter.SerializerSettings.ContractResolver <-
             Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver()
+
+(**
+ * Run the app in ASP.NET
+ *)
+type Global() =
+    inherit System.Web.HttpApplication() 
+    member this.Start() =
+        WebApiConfig.Register GlobalConfiguration.Configuration

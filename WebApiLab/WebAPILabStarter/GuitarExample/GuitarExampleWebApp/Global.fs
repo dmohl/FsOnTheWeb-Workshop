@@ -48,17 +48,20 @@ module Guitars =
 module Api =
     () // TODO: implement APIs
 
-(**
- * Run the app in ASP.NET
- *)
-type Global() =
-    inherit System.Web.HttpApplication() 
 
-    member this.Start() =
-        let config = GlobalConfiguration.Configuration
+type WebApiConfig() =
+    static member Register(config: HttpConfiguration) =
         config
         |> HttpResource.register [ (* Add APIs here *) ]
         |> ignore
 
         config.Formatters.JsonFormatter.SerializerSettings.ContractResolver <-
             Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver()
+        
+(**
+ * Run the app in ASP.NET
+ *)
+type Global() =
+    inherit System.Web.HttpApplication() 
+    member this.Start() =
+        WebApiConfig.Register GlobalConfiguration.Configuration
