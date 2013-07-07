@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarExampleWeb", "GuitarE
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GuitarExampleWebApp", "GuitarExample\GuitarExampleWebApp\GuitarExampleWebApp.fsproj", "{A126575F-C66E-42BF-A70F-655D4C3F0069}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Console", "GuitarExample\Console\Console.fsproj", "{8995A0B8-D7D7-404E-8763-B8687214BF7B}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GuitarExampleWebApp.Tests", "tests\GuitarExampleWebApp.Tests\GuitarExampleWebApp.Tests.fsproj", "{8995A0B8-D7D7-404E-8763-B8687214BF7B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B483A23C-6571-49ED-9B42-8E5B7794C692}"
 	ProjectSection(SolutionItems) = preProject
