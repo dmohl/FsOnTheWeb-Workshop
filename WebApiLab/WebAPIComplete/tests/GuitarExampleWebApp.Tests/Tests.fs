@@ -9,12 +9,28 @@ open NUnit.Framework
 module ClientTests =
 
     // Rather than using an if/then/else branch structure, let's leverage F# Active Patterns.
-    let (|OK|BadRequest|NotFound|Unknown|) (response: HttpResponseMessage) =
-        match response.StatusCode with
-        | HttpStatusCode.OK -> OK(response.Headers, response.Content)
-        | HttpStatusCode.BadRequest -> BadRequest(response.Headers, response.Content)
-        | HttpStatusCode.NotFound -> NotFound(response.Headers, response.Content)
-        | _ -> Unknown(response.Headers, response.Content)
+    let (|JSON|_|) (response: HttpResponseMessage) =
+        if response.StatusCode = HttpStatusCode.OK &&
+           response.Content.Headers.ContentType.MediaType = "application/json" then
+            let content = response.Content.AsyncReadAs<Newtonsoft.Json.Linq.JToken>()
+            Some(response.Headers, content)
+        else None
+
+    let (|OK|_|) (response: HttpResponseMessage) =
+        if response.StatusCode = HttpStatusCode.OK then
+            Some(response.Headers, response.Content)
+        else None
+      
+    let (|BadRequest|_|) (response: HttpResponseMessage) =
+        if response.StatusCode = HttpStatusCode.BadRequest then
+            Some(response.Headers, response.Content)
+        else None
+     
+    let (|NotFound|_|) (response: HttpResponseMessage) =
+        if response.StatusCode = HttpStatusCode.NotFound then
+            Some(response.Headers, response.Content)
+        else None
+
 
     [<Test>]
     let ``Test client can use active patterns``() = 
@@ -29,6 +45,11 @@ module ClientTests =
         async {
             use! response = Async.AwaitTask <| client.SendAsync(request, Async.DefaultCancellationToken)
             match response with
+            | JSON(_, content) ->
+                let! json = content
+                Assert.That(response.StatusCode = HttpStatusCode.OK)
+                // In the case above, we will retrieve a JSON array.
+                Assert.IsAssignableFrom<Newtonsoft.Json.Linq.JArray>(json)
             | OK(_, content) -> // content removed for clarity
                 let! result = content.AsyncReadAsString()
                 Assert.That(response.StatusCode = HttpStatusCode.OK)
@@ -38,7 +59,7 @@ module ClientTests =
             | NotFound(_, content) ->
                 let! result = content.AsyncReadAsString()
                 Assert.That(response.StatusCode = HttpStatusCode.NotFound)
-            | Unknown(_,_) -> Assert.Fail("Received an unexpected response")
+            | _ -> Assert.Fail("Received an unexpected response")
         } |> Async.RunSynchronously
 
         Console.ReadLine() |> ignore
