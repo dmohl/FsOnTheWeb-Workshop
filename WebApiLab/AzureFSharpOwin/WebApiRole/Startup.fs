@@ -7,9 +7,6 @@ open System.Net
 open System.Net.Http
 open System.Web.Http
 
-type H = StartupExtensions.OwinHandlerAsync
-type RouteOptions = { id: RouteParameter }
-
 type Startup() =
     member x.Configuration(app: IAppBuilder) =
         // Host Web API

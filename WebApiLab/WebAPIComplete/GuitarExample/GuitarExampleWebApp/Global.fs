@@ -16,28 +16,34 @@ module Guitars =
     open System
     open System.IO
 
+    let dataSource = @"c:\temp\Guitars.txt"
+
     let getGuitars() =
-        if File.Exists @"c:\temp\Guitars.txt" then
-            File.ReadAllText(@"c:\temp\Guitars.txt").Split(',') 
+        if File.Exists dataSource then
+            File.ReadAllText(dataSource).Split(',') 
             |> Array.map (fun x -> Guitar(Name = x))
         else [||]
 
     let getGuitar name =
-        getGuitars() |> Array.tryFind(fun g -> g.Name = name)
+        getGuitars() |> Array.tryFind(fun g -> (g.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
 
     let addGuitar (guitar: Guitar) =
         if not (String.IsNullOrEmpty(guitar.Name)) then
             let result = getGuitars() |> Array.fold(fun acc x -> acc + x.Name + ",") ""
-            File.WriteAllText(@"c:\temp\Guitars.txt", result + guitar.Name)
+            File.WriteAllText(dataSource, result + guitar.Name)
             Some()
         else None
 
     let removeGuitar name =
         let guitars = getGuitars()
-        match guitars |> Array.tryFindIndex(fun g -> g.Name = name) with
+        match guitars |> Array.tryFindIndex(fun g -> g.Name.Equals(name, StringComparison.OrdinalIgnoreCase)) with
         | Some(_) ->
-            let result = String.Join(",", guitars |> Array.filter (fun g -> g.Name <> name))
-            File.WriteAllText(@"c:\temp\Guitars.txt", result)
+            let data =
+                guitars
+                |> Array.filter (fun g -> not <| g.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
+                |> Array.map (fun g -> g.Name)
+            let result = String.Join(",", data)
+            File.WriteAllText(dataSource, result)
             Some()
         | None -> None
 
@@ -67,7 +73,9 @@ module Api =
             let! guitar = content
             match Guitars.addGuitar guitar with
             | Some() ->
-                return request.CreateResponse(HttpStatusCode.Created, guitar)
+                let response = request.CreateResponse(HttpStatusCode.Created, guitar)
+                response.Headers.Location <- Uri(request.RequestUri, "guitar/" + guitar.Name)
+                return response
             | None ->
                 return request.CreateResponse(HttpStatusCode.InternalServerError)
         | MissingGuitar -> return request.CreateResponse(HttpStatusCode.BadRequest)
@@ -76,10 +84,42 @@ module Api =
     let guitarsResource = route "guitars" (get getGuitars <|> post postGuitar)
 
 
+    (* Guitar API *)
+    let (|Guitar|NotFound|) request =
+        let result =
+            getParam<string> request "name"
+            |> Option.bind (fun name ->
+                Guitars.getGuitar name
+                |> Option.map (fun guitar ->
+                    (name, guitar)))
+        match result with
+        | Some value -> Guitar value
+        | None -> NotFound
+
+    let getGuitar (request: HttpRequestMessage) = async {
+        match request with
+        | Guitar(_, guitar) ->
+            return request.CreateResponse(HttpStatusCode.OK, guitar)
+        | NotFound ->
+            return request.CreateResponse(HttpStatusCode.NotFound)
+    }
+
+    let deleteGuitar (request: HttpRequestMessage) = async {
+        match request with
+        | Guitar(name, _) ->
+            match Guitars.removeGuitar name with
+            | Some() -> return request.CreateResponse(HttpStatusCode.NoContent)
+            | None -> return request.CreateResponse(HttpStatusCode.InternalServerError)
+        | NotFound -> return request.CreateResponse(HttpStatusCode.NotFound)
+    }
+
+    let guitarResource = routeResource "guitar/{name}" [ get getGuitar; delete deleteGuitar ]
+
+
 type WebApiConfig() =
     static member Register(config: HttpConfiguration) =
         config
-        |> HttpResource.register [ Api.guitarsResource ]
+        |> HttpResource.register [ Api.guitarsResource; Api.guitarResource ]
         |> ignore
 
         config.Formatters.JsonFormatter.SerializerSettings.ContractResolver <-
