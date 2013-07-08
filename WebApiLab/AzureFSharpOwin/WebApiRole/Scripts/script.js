@@ -1,5 +1,8 @@
 ﻿(function (document, console, $, undefined) {
     $(document).ready(function () {
+        var guitarsUrl = '/guitars',
+            guitars = document.getElementById('guitars');
+
         function createListItem(name, url) {
             var li = document.createElement('li'),
                 content = document.createElement('a'),
@@ -16,12 +19,10 @@
             return li;
         }
 
-        $.get('/guitars', function (data) {
-            var guitars = document.getElementById('guitars');
+        $.get(guitarsUrl, function (data) {
             for (var i = 0, len = data.length; i < len; i++) {
                 var guitar = data[i],
-                    url = '/guitars/' + guitar.name,
-                    li = createListItem(guitar.name, url);
+                    li = createListItem(guitar.name, guitar.link);
                 guitars.appendChild(li);
             }
         });
@@ -32,14 +33,14 @@
                 formData = { name: name };
             $.ajax({
                 type: 'POST',
-                url: '/guitars',
+                url: guitarsUrl,
                 contentType: 'application/json',
                 data: JSON.stringify(formData)
             }).
             done(function (data, status, request) {
                 var url = request.getResponseHeader('Location'),
                     li = createListItem(data.name, url);
-                document.getElementById('guitars').appendChild(li);
+                guitars.appendChild(li);
             }).
             fail(function (request, status) {
                 console.log('Failed with status: ' + status);
