@@ -84,7 +84,7 @@ open Microsoft.FSharp.Quotations
 open RuntimeImplementation
 
 type Runtime private() = 
-  static member Run(?expression, ?port, ?directory, ?components, ?browse) =
+  static member Run(?expression, ?port, ?directory, ?components, ?browse, ?outputFileName) =
     let components = defaultArg components []
     let port = defaultArg port 8281
     let directory = defaultArg directory ""
@@ -118,7 +118,10 @@ type Runtime private() =
     let sw = System.Diagnostics.Stopwatch.StartNew()
     let source = FunScript.Compiler.Compiler.Compile(main, components=components)
     let sourceWrapped = sprintf "$(document).ready(function () {\n%s\n});" source
-    let filename = Path.Combine(root, (System.IO.Path.GetFileNameWithoutExtension(thisAsm.Location).ToLower()) + ".js")
+    let filename = 
+        match outputFileName with
+        | Some fileName -> Path.Combine(root, fileName + ".js")
+        | None -> Path.Combine(root, (System.IO.Path.GetFileNameWithoutExtension(thisAsm.Location).ToLower()) + ".js")
     printfn "Generated JavaScript in %f sec..." (float sw.ElapsedMilliseconds / 1000.0) 
     System.IO.File.Delete filename
     System.IO.File.WriteAllText(filename, sourceWrapped)
