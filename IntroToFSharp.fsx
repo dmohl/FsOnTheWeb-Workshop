@@ -1,4 +1,4 @@
-// Variables, Values, Functions, and Type Inference 
+// Variables, Values, Functions, and Type Inference (Hindly-Milner Type Inference
 let myNum = 5
 let myString = "Hi"
 let addOne num = num + 1
@@ -36,7 +36,7 @@ type MyClass() =
 let myClass = MyClass()
 myClass.AddOne 5 |> printfn "The new number is %i"
 
-// Async Computation Expression and MailboxProcessor
+// Async Workflows and MailboxProcessor
 type Agent<'T> = MailboxProcessor<'T>
 let agents =
     [ for i in 0 .. 1000 ->
