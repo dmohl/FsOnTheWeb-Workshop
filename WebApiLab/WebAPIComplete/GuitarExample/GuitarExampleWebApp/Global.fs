@@ -7,7 +7,7 @@ type Guitar() =
     let mutable name = ""
     member x.Name
         with get() = name
-        and set(v) = name <- v
+        and set(v) = name <- v 
 
 (**
  * Define Guitar catalog operations
