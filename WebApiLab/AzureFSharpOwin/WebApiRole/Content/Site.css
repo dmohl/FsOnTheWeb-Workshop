@@ -73,3 +73,7 @@ textarea
 {
     display: none;
 }
+
+.delete {
+    margin-left: 5px;
+}

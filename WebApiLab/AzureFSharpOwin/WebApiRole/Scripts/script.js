@@ -7,7 +7,7 @@
             content.setAttribute('href', url);
             content.textContent = name;
             li.appendChild(content);
-            deleteButton.setAttribute('class', 'delete');
+            deleteButton.setAttribute('class', 'delete btn btn-mini');
             deleteButton.setAttribute('data-href', url);
             deleteButton.setAttribute('type', 'button');
             deleteButton.textContent = 'Delete';
