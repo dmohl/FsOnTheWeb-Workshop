@@ -16,28 +16,34 @@ module Guitars =
     open System
     open System.IO
 
+    let dataSource = @"c:\temp\Guitars.txt"
+
     let getGuitars() =
-        if File.Exists @"c:\temp\Guitars.txt" then
-            File.ReadAllText(@"c:\temp\Guitars.txt").Split(',') 
+        if File.Exists dataSource then
+            File.ReadAllText(dataSource).Split(',') 
             |> Array.map (fun x -> Guitar(Name = x))
         else [||]
 
     let getGuitar name =
-        getGuitars() |> Array.tryFind(fun g -> g.Name = name)
+        getGuitars() |> Array.tryFind(fun g -> (g.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
 
     let addGuitar (guitar: Guitar) =
         if not (String.IsNullOrEmpty(guitar.Name)) then
             let result = getGuitars() |> Array.fold(fun acc x -> acc + x.Name + ",") ""
-            File.WriteAllText(@"c:\temp\Guitars.txt", result + guitar.Name)
+            File.WriteAllText(dataSource, result + guitar.Name)
             Some()
         else None
 
     let removeGuitar name =
         let guitars = getGuitars()
-        match guitars |> Array.tryFindIndex(fun g -> g.Name = name) with
+        match guitars |> Array.tryFindIndex(fun g -> g.Name.Equals(name, StringComparison.OrdinalIgnoreCase)) with
         | Some(_) ->
-            let result = String.Join(",", guitars |> Array.filter (fun g -> g.Name <> name))
-            File.WriteAllText(@"c:\temp\Guitars.txt", result)
+            let data =
+                guitars
+                |> Array.filter (fun g -> not <| g.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
+                |> Array.map (fun g -> g.Name)
+            let result = String.Join(",", data)
+            File.WriteAllText(dataSource, result)
             Some()
         | None -> None
 

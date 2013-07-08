@@ -4,18 +4,23 @@
     <meta charset="utf-8" />
     <title>Guitars</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/Content/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="/Content/Site.css" rel="stylesheet" media="screen">
 </head>
 <body>
-    <div data-role="page" data-theme="a" id="guitarsPage">
-        <header data-role="header">
+    <div id="guitarsPage" class="container">
+        <header>
             <h1>Guitars</h1>
         </header>
-        <div data-role="content">
+        <div>
             <form method="post">
-                <label for="name">Name</label> <input type="text" name="name" id="name" />
-                <button type="submit" data-role="button">Create</button>
+                <div class="input-append">
+                    <input type="text" name="name" id="name" class="span4" placeholder="Type the name of a guitar and click Create..." />
+                    <button type="submit" class="btn">Create</button>
+                </div>
             </form>
-            <ul id="guitars" data-role="listview" data-filter="true" data-inset="true"></ul>
+            <ul id="guitars"></ul>
         </div>
     </div>
     <script src="/Scripts/jquery-1.10.1.min.js"></script>
