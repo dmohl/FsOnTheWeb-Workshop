@@ -16,7 +16,7 @@ module Guitars =
     open System
     open System.IO
 
-    let dataSource = @"c:\temp\Guitars.txt"
+    let dataSource = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Guitars.txt")
 
     let getGuitars() =
         if File.Exists dataSource then
