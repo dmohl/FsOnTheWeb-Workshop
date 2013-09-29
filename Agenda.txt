@@ -27,3 +27,16 @@ Agenda:
 - Build a Web API service and reviewing Frank (20 min)
 - Exercises (30 min)
 
+
+4 hour Agenda:
+
+- Getting setup and Build your first MVC app (30 min) 
+    - Start with C# app
+    - Move to F# app
+- Exercises (40 min) 
+- FunScript (30 min) 
+- Exercises (40 min)
+- Functional nature of the web and build a Web API service with a functional approach (30 min)
+- Exercises (40 min)
+- F# on Azure (Fog, Owen example) (15 min)
+- Exercise (40 min)
