@@ -1,18 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarExampleWeb", "GuitarExample\GuitarExampleWeb\GuitarExampleWeb.csproj", "{A48042E1-F7DE-4E68-9D79-4914510B9194}"
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GuitarExampleWebApp", "GuitarExample\GuitarExampleWebApp\GuitarExampleWebApp.fsproj", "{A126575F-C66E-42BF-A70F-655D4C3F0069}"
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GuitarExampleWebApp.Tests", "tests\GuitarExampleWebApp.Tests\GuitarExampleWebApp.Tests.fsproj", "{8995A0B8-D7D7-404E-8763-B8687214BF7B}"
-EndProject
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B483A23C-6571-49ED-9B42-8E5B7794C692}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarExampleWeb", "GuitarExample\GuitarExampleWeb\GuitarExampleWeb.csproj", "{A48042E1-F7DE-4E68-9D79-4914510B9194}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GuitarExampleWebApp", "GuitarExample\GuitarExampleWebApp\GuitarExampleWebApp.fsproj", "{A126575F-C66E-42BF-A70F-655D4C3F0069}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GuitarExampleWebApp.Tests", "tests\GuitarExampleWebApp.Tests\GuitarExampleWebApp.Tests.fsproj", "{8995A0B8-D7D7-404E-8763-B8687214BF7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
