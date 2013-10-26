@@ -51,14 +51,15 @@ module Guitars =
 (**
  * Expose APIs
  *)
+(* REPLACE with code from Step 1 of the "Add a Get Method" instructions *)
 module Api =
-    () // TODO: implement APIs
-
+    ()
+(* END OF REPLACE with code from Step 1 of the "Add a Get Method" instructions *)
 
 type WebApiConfig() =
     static member Register(config: HttpConfiguration) =
         config
-        |> HttpResource.register [ (* Add APIs here *) ]
+        |> HttpResource.register [ (* REPLACE with code from Step 3 of the "Add a Get Method" instructions *) ]
         |> ignore
 
         config.Formatters.JsonFormatter.SerializerSettings.ContractResolver <-
